@@ -1,4 +1,5 @@
-// useEffect is a React Hook that lets you perform side effects in functional components. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount combined in class components.
+// useEffect is a React Hook that lets you perform side effects in functional components. 
+// It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount combined in class components.
 // React to state/prop changes - Run code when dependencies change
 
 // Side effects are operations that affect something outside the component scope:
