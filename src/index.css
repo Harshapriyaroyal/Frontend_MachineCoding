@@ -1,8 +1,34 @@
-.folder {
-  background-color: lightgray;
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2px;
+.root{
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+}
+.label-item{
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.field{
+    margin-bottom: 15px;
+    padding: 5px 0px;
+    display: flex;
+}
+
+input{
+  margin-left: 10px;
+  width: 50%;
 }
