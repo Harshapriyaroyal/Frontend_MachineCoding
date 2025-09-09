@@ -1,47 +1,46 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
+const Pagination = () => {
 
-export default function Pagination() {
-
-    const [products, setProducts] = useState([])
+    const [data, setData] = useState([])
     const [page, setPage] = useState(1)
-    const fetchProductsList = async () => {
-        const response = await fetch("https://dummyjson.com/products?limit=100")
-        const data = await response.json()
-        setProducts(data?.products)
-    }
     useEffect(() => {
-        fetchProductsList()
-    }, [])
+        fetchData()
+    }, [page])
 
-    const handlePageSelector = (selectedPage) =>{
-        if(selectedPage>=1 && selectedPage<=products.length/10 && selectedPage!==page){
+    const fetchData = async () => {
+        const response = await fetch("https://dummyjson.com/products?limit=100")
+        const jsonData = await response.json()
+        setData(jsonData?.products)
+    }
+
+    const handlePagination = (selectedPage) => {
+        if (selectedPage >= 1 && selectedPage <= data.length / 10 && selectedPage !== page) {
             setPage(selectedPage)
         }
     }
     return (
         <>
-            {products.length > 0 && <div className="products">
-                {products.slice(page * 10 - 10, page * 10).map((item) => {
-                    return <div className="products__single">
-                        <img src={item.thumbnail} />
-                        {item.title}
-                    </div>
+            {data?.length > 0 && <div className="products">
+                {(data?.slice((page - 1) * 10, page * 10))?.map((item) => {
+                    return (
+                        <div key={item?.id}><h3>{item?.title}</h3>
+                            <img src={item?.thumbnail} />
+                        </div>
+                    )
                 })}
             </div>}
-            {
-                products.length > 0 && <div className="pagination">
-                    <span onClick={()=>setPage(page-1)} className={page>1 ?"":"pagination_disable"}>◀️</span>
-                    {
-                        [...Array(products.length / 10)].map((_, i) => {
-                            return <span onClick={()=>handlePageSelector(i+1)} className={page==i+1?"page_selected":""}>{i + 1}</span>
-                        })
-                    }
-                    <span onClick={()=>setPage(page+1)} className={page < products.length/10 ?"":"pagination_disable"}>▶️</span>
-                </div>
-            }
 
+            {data?.length > 0 && <div className="pagination">
+                <span className={page == 1 ? "pagination_disable" : ""} onClick={() => setPage(page - 1)}>◀️</span>
+                {
+                    [...Array(data.length / 10)].map((_, i) => {
+                        return <span className={page === i + 1 ? "page_selected" : ""} key={i + 1} onClick={() => handlePagination(i + 1)}>{i + 1}</span>
+                    })
+                }
+                <span className={page == data.length / 10 ? "pagination_disable" : ""} onClick={() => setPage(page + 1)}>▶️</span>
+            </div>}
         </>
     )
 }
 
-// if it is server side we will render default page count and based on total page count we will call the API
+export default Pagination
