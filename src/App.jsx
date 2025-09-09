@@ -1,11 +1,11 @@
 
 import { useState } from "react";
-import Password from "./components/Password";
+import Progressbar from "./components/Progressbar";
 export default function App() {
  
   return (
     <div className="app">
-      <Password/>
+      <Progressbar/>
     </div>
   );
 }

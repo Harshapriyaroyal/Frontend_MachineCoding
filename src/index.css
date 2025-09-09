@@ -1,39 +1,31 @@
-.root {
-    background-color:darkslateblue;
-    margin: 10px;
-    padding: 20px;
-}
-
-.password {
-    font-weight: 700;
+.header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-button{
-    padding: 1px 10px;
+.percentage-bar {
+    width: 80%;
+    position: relative;
+    border: 1px solid black;
+    height: 30px;
+    border-radius: 10px;
+    margin: auto;
+    overflow: hidden;
+    background-color: #e0e0e0;
 }
 
-.generate_btn{
+.progress-fill {
+    height: 100%;
+    background-color: green;
+    transition: width 0.1s linear;
+}
+
+.progress-value{
+    justify-content: center;
     align-items: center;
-    flex:1
-}
-
-.checkboxes{
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 10px;
-    margin:5px
-}
-
-.checkbox-item{
     display: flex;
-    margin: 3px;
-}
-.range{
+    position: absolute;
+    align-items: center;
     width:100%;
-}
-
-.error{
-    color: red
+    font-weight: bold;
 }
