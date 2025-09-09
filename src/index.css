@@ -1,31 +1,15 @@
-.header {
-    display: flex;
-    justify-content: center;
+.cells-container{
+    width: 50%;
+    height:50%
 }
 
-.percentage-bar {
-    width: 80%;
-    position: relative;
+.grid-templates{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.grid-cell{
     border: 1px solid black;
-    height: 30px;
-    border-radius: 10px;
-    margin: auto;
-    overflow: hidden;
-    background-color: #e0e0e0;
-}
-
-.progress-fill {
-    height: 100%;
-    background-color: green;
-    transition: width 0.1s linear;
-}
-
-.progress-value{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: absolute;
-    align-items: center;
-    width:100%;
-    font-weight: bold;
+    height: 100px;
+    margin: 10px;
+    background-color: whitesmoke;
 }

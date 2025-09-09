@@ -1,11 +1,11 @@
 
 import { useState } from "react";
-import Progressbar from "./components/Progressbar";
+ import Cells from "./components/Cells";
 export default function App() {
- 
+
   return (
     <div className="app">
-      <Progressbar/>
+      <Cells />
     </div>
   );
 }
