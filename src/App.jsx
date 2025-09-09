@@ -1,11 +1,11 @@
 
 import { useState } from "react";
-import LoanCalculator from "./components/loanCalculator";
+import Password from "./components/Password";
 export default function App() {
  
   return (
     <div className="app">
-      <LoanCalculator/>
+      <Password/>
     </div>
   );
 }
